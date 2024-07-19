@@ -1,0 +1,49 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Creating sample data
+np.random.seed(0)
+dates = pd.date_range('2024-01-01', periods=10)
+data = pd.DataFrame({
+    'Date': dates,
+    'Sales': np.random.randint(50, 100, size=10),
+    'Profit': np.random.rand(10) * 100
+})
+
+# Display the sample data
+print(data)
+
+# Plotting the bar chart
+plt.figure(figsize=(10, 6))
+plt.bar(data['Date'], data['Sales'], color='blue', label='Sales')
+
+# Adding labels and title
+plt.xlabel('Date')
+plt.ylabel('Sales')
+plt.title('Sales Over Time')
+plt.legend()
+
+# Rotating x-axis labels for better visibility
+plt.xticks(rotation=45)
+
+# Display the plot
+plt.tight_layout()
+plt.show()
+
+# Plotting the line chart
+plt.figure(figsize=(10, 6))
+plt.plot(data['Date'], data['Profit'], marker='o', color='green', linestyle='-', label='Profit')
+
+# Adding labels and title
+plt.xlabel('Date')
+plt.ylabel('Profit')
+plt.title('Profit Over Time')
+plt.legend()
+
+# Rotating x-axis labels for better visibility
+plt.xticks(rotation=45)
+
+# Display the plot
+plt.tight_layout()
+plt.show()
